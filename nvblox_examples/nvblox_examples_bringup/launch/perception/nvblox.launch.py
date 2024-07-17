@@ -27,8 +27,9 @@ from nvblox_ros_python_utils.nvblox_constants import NVBLOX_CONTAINER_NAME
 def get_isaac_sim_remappings(mode: NvbloxMode, num_cameras: int,
                              lidar: bool) -> List[Tuple[str, str]]:
     remappings = []
-    camera_names = ['front_stereo_camera', 'left_stereo_camera',
-                    'right_stereo_camera'][:num_cameras]
+    # camera_names = ['front_stereo_camera', 'left_stereo_camera',
+    #                 'right_stereo_camera'][:num_cameras]
+    camera_names = ['front_stereo_camera'][:num_cameras]
     for i, name in enumerate(camera_names):
         remappings.append((f'camera_{i}/depth/image', f'{name}/depth/ground_truth'))
         remappings.append((f'camera_{i}/depth/camera_info', f'{name}/depth/camera_info'))
